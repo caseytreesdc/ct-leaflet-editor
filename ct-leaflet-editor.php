@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Leaflet Editor
  * Description:       Edit the Leaflet, copy the HTML to the clipboard, paste it in Pardot!
- * Version:           1.0
+ * Version:           2.0
  * Author:            Tissa Khosla - Casey Trees
  */
 
@@ -62,29 +62,29 @@ function get_leaflet_content() {
 	$transferDictionary = array(
 		'preheader' => $preheaderText,
 		'article-1__link' => get_permalink($storyOne).$trackedLinkSnippet.get_option('options_story_1_tracked_link_campaign'),
-		'article-1__alt-text' => get_option('options_story_1_alt_text'),
-		'article-1__image' => wp_get_attachment_image_url(get_option('options_story_1_image'), 'full'),
-		'article-1__heading' => $storyOne->$someoneExplainThis['_yoast_wpseo_opengraph-title'][0],
-		'article-1__description' => $storyOne->$someoneExplainThis['_yoast_wpseo_twitter-description'][0],
+		'article-1__alt-text' => get_post_meta(get_fields($storyOne->ID)['related_image'], '_wp_attachment_image_alt', true),
+		'article-1__image' => wp_get_attachment_image_url(get_fields($storyOne->ID)['related_image'], 'full'),
+		'article-1__heading' => get_post_meta($storyOne->ID, '_yoast_wpseo_opengraph-title')[0],
+		'article-1__description' => get_post_meta($storyOne->ID, '_yoast_wpseo_opengraph-description')[0],
 		'banner-a__link' => get_option('options_button_1_link'),
 		'banner-a__alt-text' => get_option('options_button_1_alt_text'),
 		'banner-a__image-browser' => wp_get_attachment_image_url(get_option('options_button_1_desktop'), 'full'),
 		'banner-a__image-responsive' => wp_get_attachment_image_url(get_option('options_button_1_mobile'), 'full'),
 		'article-2__link' => get_permalink($storyTwo).$trackedLinkSnippet.get_option('options_story_2_tracked_link_campaign'),
-		'article-2__alt-text' => get_option('options_story_2_alt_text'),
-		'article-2__image' => wp_get_attachment_image_url(get_option('options_story_2_image'), 'full'),
-		'article-2__heading' => $storyTwo->$someoneExplainThis['_yoast_wpseo_opengraph-title'][0],
-		'article-2__description' => $storyTwo->$someoneExplainThis['_yoast_wpseo_twitter-description'][0],
+		'article-2__alt-text' => get_post_meta(get_fields($storyTwo->ID)['related_image'], '_wp_attachment_image_alt', true),
+		'article-2__image' => wp_get_attachment_image_url(get_fields($storyTwo->ID)['related_image'], 'full'),
+		'article-2__heading' => get_post_meta($storyTwo->ID, '_yoast_wpseo_opengraph-title')[0],
+		'article-2__description' => get_post_meta($storyTwo->ID, '_yoast_wpseo_opengraph-description')[0],
 		'article-3__link' => get_permalink($storyThree).$trackedLinkSnippet.get_option('options_story_3_tracked_link_campaign'),
-		'article-3__alt-text' => get_option('options_story_3_alt_text'),
-		'article-3__image' => wp_get_attachment_image_url(get_option('options_story_3_image'), 'full'),
-		'article-3__heading' => $storyThree->$someoneExplainThis['_yoast_wpseo_opengraph-title'][0],
-		'article-3__description' => $storyThree->$someoneExplainThis['_yoast_wpseo_twitter-description'][0],
+		'article-3__alt-text' => get_post_meta(get_fields($storyThree->ID)['related_image'], '_wp_attachment_image_alt', true),
+		'article-3__image' => wp_get_attachment_image_url(get_fields($storyThree->ID)['related_image'], 'full'),
+		'article-3__heading' => get_post_meta($storyThree->ID, '_yoast_wpseo_opengraph-title')[0],
+		'article-3__description' => get_post_meta($storyThree->ID, '_yoast_wpseo_opengraph-description')[0],
 		'banner-b__link' => get_option('options_button_2_link'),
 		'banner-b__alt-text' => get_option('options_button_2_alt_text'),
 		'banner-b__image-browser' => wp_get_attachment_image_url(get_option('options_button_2_desktop'), 'full'),
 		'banner-b__image-responsive' => wp_get_attachment_image_url(get_option('options_button_2_desktop'), 'full')
 	);
 
-	write_leaflet_HTML($transferDictionary, $htmlPreview);
+	write_leaflet_HTML($transferDictionary);
 }
