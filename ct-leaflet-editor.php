@@ -67,7 +67,7 @@ function get_leaflet_content() {
 		'article-1__heading' => get_post_meta($storyOne->ID, '_yoast_wpseo_opengraph-title')[0],
 		'article-1__description' => get_post_meta($storyOne->ID, '_yoast_wpseo_opengraph-description')[0],
 		'banner-a__link' => get_option('options_button_1_link'),
-		'banner-a__alt-text' => get_post_meta(get_option('options_button_2_desktop'), '_wp_attachment_image_alt')[0],
+		'banner-a__alt-text' => get_post_meta(get_option('options_button_1_desktop'), '_wp_attachment_image_alt')[0],
 		'banner-a__image-browser' => wp_get_attachment_image_url(get_option('options_button_1_desktop'), 'full'),
 		'banner-a__image-responsive' => wp_get_attachment_image_url(get_option('options_button_1_mobile'), 'full'),
 		'article-2__link' => get_permalink($storyTwo).$trackedLinkSnippet.get_option('options_story_2_tracked_link_campaign'),
@@ -81,7 +81,7 @@ function get_leaflet_content() {
 		'article-3__heading' => get_post_meta($storyThree->ID, '_yoast_wpseo_opengraph-title')[0],
 		'article-3__description' => get_post_meta($storyThree->ID, '_yoast_wpseo_opengraph-description')[0],
 		'banner-b__link' => get_option('options_button_2_link'),
-		'banner-b__alt-text' => get_post_meta(get_option('options_button_1_desktop'), '_wp_attachment_image_alt')[0],
+		'banner-b__alt-text' => get_post_meta(get_option('options_button_2_desktop'), '_wp_attachment_image_alt')[0],
 		'banner-b__image-browser' => wp_get_attachment_image_url(get_option('options_button_2_desktop'), 'full'),
 		'banner-b__image-responsive' => wp_get_attachment_image_url(get_option('options_button_2_mobile'), 'full')
 	);
