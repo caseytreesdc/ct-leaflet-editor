@@ -88,3 +88,5 @@ function get_leaflet_content() {
 
 	write_leaflet_HTML($transferDictionary);
 }
+
+// TODO: make field autocomplete based on top 3 stories in that order: this could be a button, or it exist as such by default
